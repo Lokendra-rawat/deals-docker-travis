@@ -8,21 +8,21 @@ var stores = require("./Models/stores");
 var deals = require("./Models/deals");
 
 
-// mongodb.connect('mongodb://lokendra:lokendra@ds115166.mlab.com:15166/stories', {
-// 	useMongoClient: true
-// }, function(err) {
-// 	if (err) {
-// 		throw err;
-// 	}
-// });
-
-mongodb.connect('mongodb://mongo:27017/expressdb', {
+mongodb.connect('mongodb://lokendra:lokendra@ds115166.mlab.com:15166/stories', {
 	useMongoClient: true
 }, function(err) {
 	if (err) {
 		throw err;
 	}
 });
+
+// mongodb.connect('mongodb://mongo:27017/expressdb', {
+// 	useMongoClient: true
+// }, function(err) {
+// 	if (err) {
+// 		throw err;
+// 	}
+// });
 
 const app = express();
 
