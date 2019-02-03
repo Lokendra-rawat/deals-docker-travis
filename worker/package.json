@@ -1,0 +1,22 @@
+{
+  "name": "worker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "lokendra rawat",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "cloudinary": "^1.9.1",
+    "dotenv": "^5.0.1",
+    "mongoose": "^4.13.11",
+    "needle": "^2.2.4",
+    "nodemon": "^1.18.9",
+    "redis": "^2.8.0"
+  }
+}

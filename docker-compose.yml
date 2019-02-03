@@ -1,0 +1,65 @@
+version: "2"
+services:
+  nginx:
+    restart: always
+    image: 'nginx'
+    build:
+      # dockerfile: Dockerfile.dev
+      context: ./nginx
+    # container_name: dev-nginx
+    ports:
+      - '5000:80'
+      # - '5001:3000'
+      # - "80:80"
+      # - "443:443"
+    # links:
+    #   - api
+  api:
+    container_name: api
+    build:
+      # dockerfile: Dockerfile.dev
+      context: ./server
+    volumes:
+      - /usr/app/node_modules
+      - ./server:/usr/app
+    restart: always
+    # build: .
+    # ports:
+    #   - "3000:3000"
+    # links:
+    #   - mongo
+  # client:
+  #   container_name: client
+  #   build:
+  #     context: ./client
+  #   volumes:
+  #     - /usr/app/node_modules
+  #     - ./client:/usr/app
+  myapp:
+    container_name: myapp
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./myapp
+    ports:
+      - '3000:3000'
+    volumes:
+      - /usr/app1/node_modules
+      - ./myapp:/usr/app1
+  worker:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./worker
+    volumes:
+      - /usr/app/node_modules
+      - ./worker:/usr/app
+    # environment:
+    #   - REDIS_HOST=redis
+    #   - REDIS_PORT=6379
+
+  mongo:
+    container_name: mongo
+    image: mongo
+    volumes:
+      - ./data:/data/db
+    ports:
+      - "27017:27017"

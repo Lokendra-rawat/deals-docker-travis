@@ -1,0 +1,72 @@
+$text-primary: #000;
+$text-secondary : #7e818c;
+$text-dark : #33363b;
+
+
+.footer{
+
+  margin-top: 50px;
+
+  .newsletter{
+    box-shadow: 0 1px 3px rgba(25, 25, 25, 0.2);
+    border-radius: 5px 5px 3px 3px;
+    height: auto;
+    color: #a3a3a3;
+    background: white;
+    margin-bottom: 40px;
+    // margin: 30px;
+    // border: 1px solid red;
+  }
+
+  ul{
+    color: $text-dark;
+  }
+
+  li a{
+    margin-bottom: 10px;
+    line-height: 1.5;
+    color: $text-secondary;
+
+    &:hover{
+      color: $text-primary;
+    }
+  }
+
+  input{
+    padding: 10px 20px;
+  }
+
+  
+  .linkedin, .instagram, .twitter, .facebook {
+    display: inline-block;
+    background: url('/images/social1.png') no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+  }
+
+  .linkedin {
+    background-position: -0px -0px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .instagram {
+    background-position: -32px -0px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .twitter {
+    background-position: -0px -32px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .facebook {
+    background-position: -32px -32px;
+    width: 32px;
+    height: 32px;
+  }
+
+}
