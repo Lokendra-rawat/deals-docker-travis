@@ -29,7 +29,7 @@ class App extends Component {
 
   componentDidMount() {
     // this.setState ({ loaded: true });
-    // setTimeout(() => {
+    // setTimeout(d() => {
     //   this.setState({ open: true })
     // }, 5000);
   }
