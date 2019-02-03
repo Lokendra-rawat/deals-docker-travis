@@ -1,0 +1,66 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "myapp",
+      "image": "loki194/deals-client",
+      "hostname": "myapp",
+      "essential": false,
+      "memory": 128
+    },
+    {
+      "name": "server",
+      "image": "loki194/deals-server",
+      "hostname": "api",
+      "essential": false,
+      "memory": 128
+    },
+    {
+      "name": "worker",
+      "image": "loki194/deals-worker",
+      "hostname": "worker",
+      "essential": false,
+      "memory": 128
+    },
+    {
+      "name": "nginx",
+      "image": "loki194/deals-nginx",
+      "hostname": "nginx",
+      "essential": true,
+      "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": [
+        "myapp",
+        "server"
+      ]
+    },
+    {
+      "name": "mongo",
+      "image": "mongo",
+      "hostname": "mongo",
+      "essential": true,
+      "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 27017,
+          "containerPort": 27017
+        }
+      ],
+      "Volumes": [
+        {
+          "HostDirectory": "./data",
+          "ContainerDirectory": "/data/db"
+        }
+      ],
+      "links": [
+        "worker",
+        "server"
+      ]
+    }
+  ]
+}
