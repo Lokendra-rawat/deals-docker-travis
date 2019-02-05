@@ -1,0 +1,25 @@
+// mongo config
+
+    {
+      "name": "mongo",
+      "image": "mongo",
+      "hostname": "mongo",
+      "essential": true,
+      "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 27017,
+          "containerPort": 27017
+        }
+      ],
+      "Volumes": [
+        {
+          "HostDirectory": "./data",
+          "ContainerDirectory": "/data/db"
+        }
+      ],
+      "links": [
+        "worker",
+        "server"
+      ]
+    }
