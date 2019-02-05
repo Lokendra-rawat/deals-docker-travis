@@ -12,17 +12,17 @@ var spinbot = require('./modules/spinbot');
 // mongodb://mongo:27017/expressdb
 // mongodb://lokendra:lokendra@ds115166.mlab.com:15166/stories
 
-mongoose.connect('mongodb://lokendra:lokendra@ds115166.mlab.com:15166/stories', {
-	useMongoClient: true
-}, function(err) {
-	if (err) console.log(err.name + " => " + err.message);
-});
-
-// mongoose.connect('mongodb://mongo:27017/expressdb', {
+// mongoose.connect('mongodb://lokendra:lokendra@ds115166.mlab.com:15166/stories', {
 // 	useMongoClient: true
 // }, function(err) {
 // 	if (err) console.log(err.name + " => " + err.message);
 // });
+
+mongoose.connect('mongodb://mongo:27017/expressdb', {
+	useMongoClient: true
+}, function(err) {
+	if (err) console.log(err.name + " => " + err.message);
+});
 
 // deal.find({}, saveImage);
 
@@ -42,9 +42,9 @@ setInterval(function() {
 	https.get(targetUrl3, getGrabondeals);
 }, 1000 * 60 * 30);
 
-// https.get(targetUrl, getFkmDeals);
-// https.get(targetUrl3, getGrabondeals);
-// https.get(targetUrl2, getDesiDeals);
+https.get(targetUrl, getFkmDeals);
+https.get(targetUrl3, getGrabondeals);
+https.get(targetUrl2, getDesiDeals);
 
 
 setInterval(spinbot, 1000 * 60 * 12);
