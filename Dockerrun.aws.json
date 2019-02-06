@@ -2,9 +2,9 @@
   "AWSEBDockerrunVersion": 2,
   "containerDefinitions": [
     {
-      "name": "myapp",
+      "name": "client",
       "image": "loki194/deals-client",
-      "hostname": "myapp",
+      "hostname": "client",
       "essential": false,
       "memory": 128
     },
@@ -35,7 +35,7 @@
         }
       ],
       "links": [
-        "myapp",
+        "client",
         "server"
       ]
     }

@@ -35,19 +35,19 @@ services:
   #   volumes:
   #     - /usr/app/node_modules
   #     - ./client:/usr/app
-  myapp:
-    container_name: myapp
+  client:
+    container_name: client
     build:
-      dockerfile: Dockerfile.dev
-      context: ./myapp
+      # dockerfile: Dockerfile.dev
+      context: ./client
     ports:
       - '3000:3000'
     volumes:
-      - /usr/app1/node_modules
-      - ./myapp:/usr/app1
+      - /usr/app/node_modules
+      - ./client:/usr/app
   worker:
     build:
-      dockerfile: Dockerfile.dev
+      # dockerfile: Dockerfile.dev
       context: ./worker
     volumes:
       - /usr/app/node_modules
