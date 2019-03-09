@@ -6,6 +6,20 @@ import Popup from "reactjs-popup";
 
 import './content.scss';
 
+
+let obj = {
+	APP_PASSIVE_OPEN: [{ps: 'CLOSED', ns: 'LISTEN'}],
+	APP_ACTIVE_OPEN: [{ps: 'CLOSED', ns: 'SYN_SENT'}],
+	APP_SEND: [{ps: 'LISTEN', ns: 'SYN_SENT'}],
+	APP_CLOSE: [{ps: 'LISTEN', ns: 'CLOSED'}, {ps: 'SYN_RCVD',ns: 'FIN_WAIT_1'}, {ps: 'SYN_SENT', ns: 'CLOSED'}, {ps: 'ESTABLISHED', ns: 'FIN_WAIT_1'},{ps: 'CLOSE_WAIT', ns: 'LAST_ACK'}],
+	APP_TIMEOUT: [{ps: 'TIME_WAIT', ns: 'CLOSED'}],
+	RCV_SYN: [{ps: 'LISTEN', ns: 'SYN_RCVD'},{ps: 'SYN_SENT', ns: 'SYN_RCVD'}],
+	RCV_ACK: [{ps: 'SYN_RCVD', ns: 'ESTABLISHED'},{ps: 'FIN_WAIT_1', ns: 'FIN_WAIT_2'},{ps: 'CLOSING', ns: 'TIME_WAIT'}],
+	RCV_SYN_ACK: [{ps: 'SYN_SENT', ns: 'ESTABLISHED'}],
+	RCV_FIN: [{ps: 'ESTABLISHED', ns: 'CLOSE_WAIT'}, {ps: 'FIN_WAIT_1', ns: 'CLOSING'}, {ps: 'FIN_WAIT_2', ns: 'TIME_WAIT'}],
+	RCV_FIN_ACK: [{ps: 'FIN_WAIT_1', ns: 'TIME_WAIT'}]
+}
+
 class Content extends Component {
   constructor(props) {
     super(props);
@@ -49,6 +63,11 @@ class Content extends Component {
   render() {
     var view
     const { modaldata } = this.state
+
+
+
+
+
 
     if (this.state.loading) {
       return (
